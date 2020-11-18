@@ -31,6 +31,8 @@ spring:
       filters: stat,wall
       maxPoolPreparedStatementPerConnectionSize: 20
       useGlobalDataSourceStat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml

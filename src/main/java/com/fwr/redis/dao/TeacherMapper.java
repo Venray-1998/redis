@@ -1,4 +1,4 @@
-package com.fwr.redis.mapper;
+package com.fwr.redis.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fwr.redis.entity.Teacher;

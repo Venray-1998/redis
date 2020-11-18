@@ -1,8 +1,9 @@
 package com.fwr.redis.service.impl;
 
 import com.fwr.redis.entity.Student;
-import com.fwr.redis.mapper.StudentMapper;
+import com.fwr.redis.dao.StudentMapper;
 import com.fwr.redis.service.TestService;
+import com.fwr.redis.utils.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,8 @@ public class TestServiceImpl implements TestService {
     private StudentMapper studentMapper;
 
     @Override
-    public void select() {
-        List<Student> students = studentMapper.selectList(null);
-        for (Student student : students) {
-            System.out.println(student);
-        }
+    public ResultResponse<List<Student>> select() {
+        List<Student> students = studentMapper.selectAll();
+        return ResultResponse.toSuccessResult(students);
     }
 }

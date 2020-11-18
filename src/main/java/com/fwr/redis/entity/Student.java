@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * Student
  * 
@@ -13,7 +15,7 @@ import lombok.Data;
  */
 @Data
 @TableName("student")
-public class Student {
+public class Student implements Serializable {
 
 	@TableId(type = IdType.AUTO)
 	private Integer id;

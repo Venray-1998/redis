@@ -18,6 +18,6 @@ public class Teacher {
 	@TableId(type = IdType.AUTO)
 	private Integer id;
 
-	private String tName;
+	private String name;
 
 }

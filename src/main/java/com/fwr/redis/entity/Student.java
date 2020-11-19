@@ -3,6 +3,7 @@ package com.fwr.redis.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -20,10 +21,10 @@ public class Student implements Serializable {
 	@TableId(type = IdType.AUTO)
 	private Integer id;
 
-	private String sName;
+	private String name;
 
-	private String sBirth;
+	private String birth;
 
-	private String sSex;
+	private String sex;
 
 }

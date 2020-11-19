@@ -17,28 +17,4 @@ import java.util.concurrent.TimeUnit;
 @RunWith(SpringRunner.class)
 class RedisApplicationTests {
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
-    @Autowired
-    private RedisTemplate redisTemplate;
-
-    @Test
-    void redisTemplateTest() {
-        User aa = (User) redisTemplate.opsForValue().get("aa");
-        System.out.println(aa);
-    }
-
-    @Test
-    void contextLoads() {
-
-        BoundValueOperations<String, String> time1 = stringRedisTemplate.boundValueOps("time");
-        String s = time1.get();
-        System.out.println(s);
-
-        Set<String> keys = stringRedisTemplate.keys("*");
-        for (String key : keys) {
-            System.out.println(key);
-        }
-    }
-
 }

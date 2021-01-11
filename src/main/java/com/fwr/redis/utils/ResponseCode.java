@@ -36,7 +36,7 @@ public enum ResponseCode {
     /**
      * AccessDenied
      */
-    ACCESS_DENIED(502,"用户没有权限访问");
+    ACCESS_DENIED(502, "用户没有权限访问");
 
     ResponseCode(int code, String message) {
         this.code = code;

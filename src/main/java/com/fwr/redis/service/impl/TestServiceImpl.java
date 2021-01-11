@@ -1,6 +1,5 @@
 package com.fwr.redis.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.fwr.redis.annotation.CacheData;
 import com.fwr.redis.entity.Student;
 import com.fwr.redis.dao.StudentMapper;
@@ -8,11 +7,9 @@ import com.fwr.redis.entity.TestDTO;
 import com.fwr.redis.service.TestService;
 import com.fwr.redis.utils.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -29,13 +26,17 @@ public class TestServiceImpl implements TestService {
     @Autowired
     private StudentMapper studentMapper;
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
     @Autowired
     private Test2 test2;
 
     @Override
     public ResultResponse<List<Student>> select() {
-        List<Student> students = studentMapper.selectAll();
+        List<Student>  students =(List<Student>) redisTemplate.opsForValue().get("list");
+        if (students == null) {
+            students = studentMapper.selectAll();
+            redisTemplate.opsForValue().set("list",students);
+        }
         return ResultResponse.toSuccessResult(students);
     }
 

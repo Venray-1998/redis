@@ -10,21 +10,21 @@ import java.io.Serializable;
 
 /**
  * Student
- * 
- * @author  fwr
- * @date 2020-11-17 
+ *
+ * @author fwr
+ * @date 2020-11-17
  */
 @Data
 @TableName("student")
 public class Student implements Serializable {
 
-	@TableId(type = IdType.AUTO)
-	private Integer id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
-	private String name;
+    private String name;
 
-	private String birth;
+    private String birth;
 
-	private String sex;
+    private String sex;
 
 }

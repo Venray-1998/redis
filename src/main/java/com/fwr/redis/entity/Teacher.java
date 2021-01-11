@@ -7,17 +7,17 @@ import lombok.Data;
 
 /**
  * Teacher
- * 
- * @author  fwr
- * @date 2020-11-17 
+ *
+ * @author fwr
+ * @date 2020-11-17
  */
 @Data
 @TableName("teacher")
 public class Teacher {
 
-	@TableId(type = IdType.AUTO)
-	private Integer id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
-	private String name;
+    private String name;
 
 }

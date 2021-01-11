@@ -13,7 +13,8 @@ import java.io.*;
 @Component
 public class SerializableUtil {
 
-    private final GenericFastJsonRedisSerializer genericFastJsonRedisSerializer = new GenericFastJsonRedisSerializer ();
+    private final GenericFastJsonRedisSerializer genericFastJsonRedisSerializer = new GenericFastJsonRedisSerializer();
+
     /**
      * 序列化
      *
@@ -47,7 +48,7 @@ public class SerializableUtil {
      *
      * @param value
      */
-    public Object deserialize(byte[] value){
+    public Object deserialize(byte[] value) {
         return genericFastJsonRedisSerializer.deserialize(value);
     }
 }

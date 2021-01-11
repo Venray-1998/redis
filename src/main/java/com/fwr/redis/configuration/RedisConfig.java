@@ -16,6 +16,7 @@ import java.time.Duration;
 public class RedisConfig {
 
     private final Duration timeToLive = Duration.ofSeconds(30);
+
     /**
      * 用于实例redisTemplate相关配置
      *
@@ -23,7 +24,7 @@ public class RedisConfig {
      * @return
      */
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory factory)throws Exception {
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory factory) throws Exception {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
         GenericFastJsonRedisSerializer genericFastJsonRedisSerializer = new GenericFastJsonRedisSerializer();
